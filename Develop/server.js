@@ -3,7 +3,7 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 
-//establish which port we'll use for our connection to the server
+//construct our server
 const PORT = process.env.PORT || 8080;
 
 const app = express();
@@ -18,6 +18,7 @@ app.use(express.static("public"));
 //connect to our server
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/populatedb", {
   useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
 
