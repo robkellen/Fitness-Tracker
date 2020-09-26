@@ -1,6 +1,19 @@
-// const app = require("express").Router();
-// const db = require("../../models");
+const router = require("express").Router();
+const path = require("path");
 
-// app.get("/workouts",  async function (req, res){
+const pubDir = path.resolve(__dirname, "../public");
+router.use("/api", require("./api"));
 
-// }
+router.get("/", function (req, res) {
+  res.sendFile(path.resolve(pubDir, "index.html"));
+});
+
+router.get("/stats", function (req, res) {
+  res.sendFile(path.resolve(pubDir, "stats.html"));
+});
+
+router.get("/exercise", function (req, res) {
+  res.sendFile(path.resolve(pubDir, "exercise.html"));
+});
+
+module.exports = router;

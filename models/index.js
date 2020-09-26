@@ -1,5 +1,5 @@
-//exporting an object containing all of our models
+//exporting an object containing our Workout model
 
 module.exports = {
-  Workout: require("./workout")
-}
+  Workout: require("./workout"),
+};
