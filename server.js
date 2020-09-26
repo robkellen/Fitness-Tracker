@@ -5,14 +5,14 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-
 const PORT = process.env.PORT || 8080;
 
 //connect to server
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
-  useFindAndModify: false,
   useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
 });
 
 //middleware
@@ -22,13 +22,10 @@ app.use(express.json());
 app.use(logger("dev"));
 // app.use(express.Router);
 
-
-
 //import routes
-app.use(require("./routes"))
+app.use(require("./routes"));
 
 //start the server
 app.listen(PORT, () => {
   console.log(`App running on PORT ${PORT}`);
 });
-
