@@ -3,7 +3,7 @@ const db = require("../../models");
 
 router.get("/workouts", async function (req, res) {
   // try {
-  res.json(await db.Workout.find().toJSON);
+  res.json(await db.Workout.find());
   // } catch (err) {}
 });
 
